@@ -4,7 +4,7 @@ import authrouter from './route/user.js'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import posrroute from './route/post.js'
-
+import path from 'path';
 
 dotenv.config()
 
@@ -17,10 +17,21 @@ mongoose.connect(process.env.MONGO)
 .catch((error) => console.log(error))
 
 
+
+const __dirname = path.resolve();
 app.listen(4000,()=> {
     console.log("server is runing")
 }) 
 
 
+
 app.use("/api/user",authrouter)
-app.use("/api/post", posrroute)
+app.use("/api/post", posrroute) 
+
+
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
