@@ -88,3 +88,20 @@ export const Signup = async(req,res,next) => {
       }
     }
       
+
+
+    //find user 
+
+    export const findUser = async(req,res,next) => {
+
+      try{
+   
+        const myuser = await User.findById(req.params.userId) 
+        res.status(200).json(myuser)
+
+
+      }
+      catch(error){
+        next(error)
+      }
+    }
