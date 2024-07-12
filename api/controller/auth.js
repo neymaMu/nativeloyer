@@ -65,5 +65,26 @@ export const Signup = async(req,res,next) => {
         catch(error){
          next(error)
         }
-       } 
+       }  
+
+
+
+    //update user 
+    
+    export const updateUser = async (req,res,next) => {
+
+
+      try{
+
+
+      const update = await User.findByIdAndUpdate(req.params.userId,{$set:{username:req.body.username,email:req.body.email,
+        profilepic:req.body. profilepic},},{new:true})
+     
+        res.status(200).json(update)
+     
+      }
+      catch(error){
+        next(error)
+      }
+    }
       

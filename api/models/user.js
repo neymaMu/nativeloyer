@@ -16,7 +16,9 @@
      unique:true
     },
  
-   
+    profilepic:{
+        type:String
+    },
   
     password:{
      type:String,
