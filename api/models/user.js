@@ -17,7 +17,8 @@
     },
  
     profilepic:{
-        type:String
+        type:String,
+        default:"https://static.vecteezy.com/system/resources/previews/007/786/810/original/lawyer-or-judge-in-simple-flat-personal-profile-icon-or-symbol-people-concept-illustration-vector.jpg"
     },
   
     password:{
