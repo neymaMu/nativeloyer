@@ -70,4 +70,26 @@ export const signout = (req,res,next) =>{
     catch(error){
       next(error)
     }
-  } 
+  }  
+
+
+
+  export const UpdatePost = async(req,res) =>{
+
+   
+    
+     try{
+    
+        const{pdf,date,userId,client,type,aponentname,caseType,caseSubject,casenumber,year,previseSession, court,faculity,notes} = req.body
+    
+        const updatePost = await Post.findByIdAndUpdate(req.params.postId,{$set:{ pdf,date,userId,client,type,aponentname,caseType,caseSubject,casenumber,year,previseSession, court,faculity,notes}},{new:true})
+    
+    
+        res.status(200).json(updatePost)
+    
+    }
+    
+    catch(error){
+      next(error)
+    }
+    }
